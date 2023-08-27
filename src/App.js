@@ -1,25 +1,32 @@
-import logo from './logo.svg';
+
 import './App.css';
+import React, { Component } from 'react';
+import Nevbar from './component/Nevbar';     
+import {BrowserRouter,Route,Routes} from "react-router-dom";
+import New from './component/New';
+import Technology from './component/Technology';
+import Health from './component/Health';
+import Entertainment from './component/Entertainment';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export default class App extends Component {
+
+
+  render() {
+    return (                                                                  
+      <>
+      <BrowserRouter>
+      <Nevbar/>  
+      <Routes>
+          <Route exact path='/business' element={<New />}/>
+          <Route exact path='/entertainment' element={<Entertainment/>}/>
+          <Route exact path='/health' element={<Health/>}/>          
+          <Route exact path='/technology' element={<Technology/>}/>
+      </Routes>   
+      </BrowserRouter>
+     
+        </>
+    
+    );
+  }
 }
-
-export default App;
